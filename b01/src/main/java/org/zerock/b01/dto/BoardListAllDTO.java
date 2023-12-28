@@ -13,10 +13,15 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class BoardListAllDTO {
+
     private Long bno;
     private String title;
+    private String content;
     private String writer;
+
     private LocalDateTime regDate;
+
     private Long replyCount;
+
     private List<BoardImageDTO> boardImages;
 }

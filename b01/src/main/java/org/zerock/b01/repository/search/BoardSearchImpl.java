@@ -180,7 +180,7 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
             List<BoardImageDTO> imageDTOS = board1.getImageSet().stream().sorted()
                     .map(boardImage -> BoardImageDTO.builder()
                             .uuid(boardImage.getUuid())
-                            .fileNmae(boardImage.getFileName())
+                            .fileName(boardImage.getFileName())
                             .ord(boardImage.getOrd())
                             .build()
                     ).collect(Collectors.toList());

@@ -30,7 +30,9 @@ public interface BoardService {
                 .build();
         if(boardDTO.getFileNames() != null){
             boardDTO.getFileNames().forEach(fileName -> {
-                String[] arr = fileName.split("_");
+                String[] arr = fileName.split("_", 2);
+                //0fcf646a-95b0-4fea-82f1-a7ed32ede70c_event06_02.PNG
+                //이런 문자열이 기입이 되면 첫번째_에서만 문자열을 분리함.
                 board.addImage(arr[0], arr[1]);
             });
         }
@@ -43,6 +45,8 @@ public interface BoardService {
                 .title(board.getTitle())
                 .content(board.getContent())
                 .modDate(board.getModDate())
+               .writer(board.getWriter())
+               .regDate(board.getRegDate())
                 .build();
         List<String> fileNames = board.getImageSet().stream().map(boardImage ->
                 boardImage.getUuid()+"_"+boardImage.getFileName()).collect(Collectors.toList());
